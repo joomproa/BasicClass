@@ -1,30 +1,38 @@
 <!-- Introduction -->
 <section>
-    <p>My name is <br/> Ismail</p>
+    <p>Welcome to {{_SITETITLE}}</p>
     <p>I love my mum</p>
 </section>
 
+<!-- List of Data -->
 <div>
-    <a href="https://facebook.com" target="_blank">
+    <h3>List of Data</h3>
+    <ul>
+        <li *ngFor="let item of _ITEMS">{{item.first_name}} {{item.last_name}} {{item.email}}</li>
+    </ul>
+</div>
+
+<div>
+    <a href="{{_FACEBOOK}}" target="_blank">
         Goto Facebook
     </a>
 </div>
 
 <div>
-    <a href="https://whatsapp.com" target="_blank">Goto WhatsApp</a>
+    <a href="{{_WHATSAPP}}" target="_blank">Goto WhatsApp</a>
 </div>
 
 <div class="button1">
-    <a href="https://facebook.com" target="_blank">GOTO FACEBOOK</a> 
+    <a href="{{_FACEBOOK}}" target="_blank">GOTO FACEBOOK</a> 
 </div>
 
-<button class="button2"><a href="https://facebook.com" target="_blank">Goto Facebook</a></button>
+<button class="button2"><a href="{{_FACEBOOK}}" target="_blank">Goto Facebook</a></button>
 
 
 <!-- Image Lesson -->
 <section>
     <div class="second-half">
-        <img src="assets/white-cat.jpeg">
+        <img src="{{_DOGPHOTO}}">
     </div>
 </section>
 
@@ -38,7 +46,7 @@
 <h6>This is a sample text</h6>
 
 <section>
-    <img src="assets/white-dog.jpeg">
+    <img src="{{_DOGPHOTO}}">
     <p>fjhgnbifjghfngiufrh</p>
     <div>
         <p>fjhgnbifjghfngiufrh</p>
@@ -49,11 +57,11 @@
     </div>
 </section>
 
-<img src="assets/white-dog.jpeg">
+<img src="{{_DOGPHOTO}}">
 
 
 <div class="custom-div">
-    <img src="assets/white-dog.jpeg">
+    <img src="{{_DOGPHOTO}}">
     <p>I love my mum</p>
     <h1>This is a sample text</h1>
 </div>
