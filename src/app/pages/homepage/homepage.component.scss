@@ -1,0 +1,56 @@
+.second-half {
+    img {
+        width: 100px;
+    }
+}
+
+.custom-div {
+    background-color: black;
+    p {
+        color: rgb(255, 255, 255);
+    }
+
+    h1 {
+        color: rgb(0, 136, 255);
+    }
+}
+
+section {
+    background-color: red;
+    padding: 20px;
+
+    div {
+        background: blue;
+        padding: 20px;
+
+        p {
+            color: white;
+        }
+    }
+}
+
+
+.button1 {
+    background-color: rgb(10 78 21);
+    margin-bottom: 10px;
+    width: 500px;
+    height: 40px;
+    padding: 15px 30px 35px 20px;
+    a {
+        color: white;
+        text-decoration: none;
+        text-transform:lowercase;
+    }
+}
+
+.button2 {
+    background-color: red;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 40px;
+    padding: 15px 30px 35px 20px;
+    border: 30px solid black;
+    box-shadow: 0px 0px 10px rgba(249, 0, 0, 0.753);
+    color: white;
+    text-decoration: none;
+}
