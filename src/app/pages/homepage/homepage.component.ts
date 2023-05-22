@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { allapimovie, allapiuser } from '../allapis';
 
 @Component({
   selector: 'app-homepage',
@@ -8,32 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HomepageComponent implements OnInit {
-  _SITETITLE:any;
-  _DOGPHOTO:any;
-  _FACEBOOK:any;
-  _WHATSAPP:any;
   _ITEMS:any = [];
+  _UPCOMINGMOVIES:any = [];
 
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
-    localStorage.setItem('Title', 'Angular Lesson');
-    localStorage.setItem('DogImage', 'assets/white-cat.jpeg');
-    localStorage.setItem('Facebook', 'https://facebook.com/akibuis');
-    localStorage.setItem('WhatsApp', 'https://whatsapp.com');
-    this.GetAllDatas();
+    this.GetUpcomingMovies();
     this.GetNamesData();
+    this.GetMovieDetails();
   }
 
-  GetAllDatas(){
-    this._SITETITLE = localStorage.getItem('Title');
-    this._DOGPHOTO = localStorage.getItem('DogImage');
-    this._FACEBOOK = localStorage.getItem('Facebook');
-    this._WHATSAPP = localStorage.getItem('WhatsApp');
+  GetUpcomingMovies(){
+    this.http.get(allapimovie.movies.getupcoming).subscribe(
+      (res:any) => {
+        this._UPCOMINGMOVIES = res.results;
+        console.log(res.results);
+      },
+      (err:any) => {
+        console.log(err);
+      }
+    )
+  }
+
+  GetMovieDetails(){
+    this.http.get(allapimovie.movies.getdetails + 552 + allapimovie.movies.api_key).subscribe(
+      (res:any) => {
+        console.log(res);
+      },
+      (err:any) => {
+        console.log(err);
+      }
+    )
   }
 
   GetNamesData(){
-    this.http.get("https://reqres.in/api/users?page=1").subscribe(
+    this.http.get(allapiuser.user.getalluser).subscribe(
       (res:any) => {
         this._ITEMS = res.data;
       },
