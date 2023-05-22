@@ -7,13 +7,17 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './reusables/header/header.component';
+import { FooterComponent } from './reusables/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     AboutusComponent,
-    ContactusComponent
+    ContactusComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
