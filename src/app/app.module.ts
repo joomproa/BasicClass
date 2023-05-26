@@ -9,6 +9,9 @@ import { ContactusComponent } from './pages/contactus/contactus.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './reusables/header/header.component';
 import { FooterComponent } from './reusables/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import { FooterComponent } from './reusables/footer/footer.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    CarouselModule,
     AppRoutingModule,
     HttpClientModule
   ],
