@@ -69,6 +69,7 @@ export class HomepageComponent implements OnInit {
     this.http.get(allapimovie.movies.getupcoming).subscribe(
       (res:any) => {
         this._UPCOMINGMOVIES = res.results;
+        console.log(res.results);
       },
       (err:any) => {
         console.log(err);

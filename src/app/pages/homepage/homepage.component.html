@@ -2,32 +2,33 @@
 <main>
 
     <!-- banner-area -->
-    <section class="banner-area banner-bg" style="background-image: url(assets/img/banner/banner_bg01.jpg);">
+    <section *ngFor="let item of _TOPRATEDMOVIES.slice(0, 1)" class="banner-area banner-bg" style="background-image: url(https://image.tmdb.org/t/p/original{{item.backdrop_path}});">
         <div class="container custom-container">
             <div class="row">
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner-content">
                         <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.8s">Movflx</h6>
-                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s">Unlimited
-                            <span>Movie</span>, TVs Shows, & More.
+                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s">{{item.original_title}}
                         </h2>
+                        <p style="color: white;">{{item.overview}}</p>
                         <div class="banner-meta wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1.8s">
                             <ul>
                                 <li class="quality">
-                                    <span>Pg 18</span>
-                                    <span>hd</span>
+                                    <span *ngIf="item.adult == true">Pg 18</span>
+                                    <span *ngIf="item.adult == false">Pg 16</span>
+                                    <span>{{item.original_language}}</span>
                                 </li>
                                 <li class="category">
                                     <a href="#">Romance,</a>
                                     <a href="#">Drama</a>
                                 </li>
                                 <li class="release-time">
-                                    <span><i class="far fa-calendar-alt"></i> 2021</span>
+                                    <span><i class="far fa-calendar-alt"></i> {{item.release_date.slice(0, 4)}}</span>
                                     <span><i class="far fa-clock"></i> 128 min</span>
                                 </li>
                             </ul>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E"
+                        <a routerLink="/moviedetails/{{item.id}}"
                             class="banner-btn btn popup-video wow fadeInUp" data-wow-delay=".8s"
                             data-wow-duration="1.8s"><i class="fas fa-play"></i> Watch Now</a>
                     </div>
@@ -74,14 +75,14 @@
                         <owl-carousel-o [options]="slideroptions">
                             <ng-container>
                                 <ng-template carouselSlide *ngFor="let movies of _POPULARMOVIES.slice(0, 10)">
-                                    <div class="movie-item mb-50" style="margin-right: 20px;">
+                                    <div class="movie-item mb-50" style="margin-right: 20px;" routerLink="/moviedetails/{{movies.id}}">
                                         <div class="movie-poster">
                                             <a ><img
                                                     src="https://image.tmdb.org/t/p/original{{movies.poster_path}}" alt=""></a>
                                         </div>
                                         <div class="movie-content">
                                             <div class="top">
-                                                <h5 class="title"><a href="movie-details.html">{{movies.original_title}}</a></h5>
+                                                <h5 class="title">{{movies.original_title}}</h5>
                                                 <span class="date">{{movies.release_date.slice(0, 4)}}</span>
                                             </div>
                                             <div class="bottom">
@@ -359,14 +360,14 @@
             </div>
             <div class="row justify-content-center">
                 <div *ngFor="let movies of _UPCOMINGMOVIES.slice(0, 8)" class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="movie-item mb-50">
+                    <div class="movie-item mb-50" routerLink="/moviedetails/{{movies.id}}">
                         <div class="movie-poster">
-                            <a href="movie-details.html"><img
-                                    src="https://image.tmdb.org/t/p/original{{movies.poster_path}}" alt=""></a>
+                            <img
+                                    src="https://image.tmdb.org/t/p/original{{movies.poster_path}}" alt="">
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">{{movies.original_title}}</a></h5>
+                                <h5 class="title">{{movies.original_title}}</h5>
                                 <span class="date">{{movies.release_date.slice(0, 4)}}</span>
                             </div>
                             <div class="bottom">

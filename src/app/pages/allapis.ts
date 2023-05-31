@@ -7,6 +7,7 @@ export let allapimovie = {
         getupcoming: MOVIE_API + 'upcoming' + api_key,
         gettoprated: MOVIE_API + 'top_rated' + api_key,
         getpopular: MOVIE_API + 'popular' + api_key,
+        gettvseries: MOVIE_API + 'popular' + api_key,
         getdetails: MOVIE_API + '/',
         api_key: api_key
     }

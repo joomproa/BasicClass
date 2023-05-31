@@ -11,6 +11,7 @@ import { HeaderComponent } from './reusables/header/header.component';
 import { FooterComponent } from './reusables/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MoviedetailsComponent } from './pages/moviedetails/moviedetails.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     AboutusComponent,
     ContactusComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MoviedetailsComponent
   ],
   imports: [
     BrowserModule,
